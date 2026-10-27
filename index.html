@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0d0d0f">
-<meta name="description" content="A collection of projects, creations, and things waiting to be discovered.">
-<title>Projects — The Collection</title>
+<meta name="description" content="Games, plugins, and apps. Explore the collection.">
+<title>The Collection</title>
 
 <style>
 * {
@@ -284,6 +283,81 @@ nav a.active {
   margin: auto;
 }
 
+.signup {
+  max-width: 470px;
+  margin: 38px auto 0;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+
+.signup h3 {
+  font-size: 19px;
+  margin: 0 0 9px;
+}
+
+.signup > p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.signup-row {
+  display: flex;
+  gap: 10px;
+}
+
+.signup input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 15px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #454550;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color .2s;
+}
+
+.signup input[type="email"]::placeholder {
+  color: #777783;
+}
+
+.signup input[type="email"]:focus {
+  outline: none;
+  border-color: white;
+}
+
+.signup .button {
+  white-space: nowrap;
+}
+
+.signup .button:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+.signup-message {
+  min-height: 20px;
+  margin: 14px 0 0 !important;
+  font-size: 13px;
+  line-height: 1.6 !important;
+}
+
+.signup-message.success {
+  color: #b9f0c8;
+}
+
+.signup-message.error {
+  color: #ffb4b4;
+}
+
+@media (max-width: 520px) {
+  .signup-row {
+    flex-direction: column;
+  }
+}
+
 footer {
   border-top: 1px solid var(--border);
   padding: 27px 15px;
@@ -349,23 +423,21 @@ footer {
 
 <section id="home" class="page visible">
   <div class="hero">
-    <div class="eyebrow">A Collection of Creations</div>
+    <div class="eyebrow">The Collection</div>
 
-    <h1>Something is<br>taking shape.</h1>
+    <h1>Ideas,<br>made real.</h1>
 
     <p>
-      Every idea starts somewhere. Some become real.
-      Others lead somewhere unexpected.
-      This is a small look at what's been created so far.
-      There's more beyond what you see.
+      Games, plugins, and apps. Each one began as a single idea
+      and became something you can use. And there's more on the way.
     </p>
 
     <p>
-      <em>You never know what you'll find next.</em>
+      <em>There's always more to find.</em>
     </p>
 
     <a href="#projects" data-page="projects" class="button">
-      Explore the Projects &nbsp; →
+      Explore projects &nbsp; →
     </a>
   </div>
 </section>
@@ -379,8 +451,8 @@ footer {
       <div class="eyebrow">The Collection</div>
       <h1>Projects</h1>
       <p>
-        Different ideas. Different directions.
-        All part of the same journey.
+        Games, plugins, and apps.
+        Each one its own idea.
       </p>
     </header>
 
@@ -407,12 +479,12 @@ footer {
           <div class="card-body">
             <h3>Chicago Survival</h3>
             <p>
-              An urban survival experience inspired by
-              the streets and atmosphere of Chicago.
+              Survive the city. An urban survival game
+              shaped by the streets and atmosphere of Chicago.
             </p>
             <span class="tag">Roblox</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Play Game ↗
+              Play now ↗
             </a>
           </div>
         </article>
@@ -422,12 +494,12 @@ footer {
           <div class="card-body">
             <h3>Hulk Survival</h3>
             <p>
-              Stay hidden, keep moving, and survive
-              while a powerful enemy searches for you.
+              Stay hidden. Keep moving. Survive
+              while something powerful hunts for you.
             </p>
             <span class="tag">Roblox</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Play Game ↗
+              Play now ↗
             </a>
           </div>
         </article>
@@ -437,19 +509,19 @@ footer {
           <div class="card-body">
             <h3>Game Project 03</h3>
             <p>
-              Another world to explore.
-              More details will be revealed when it's ready.
+              A new world to explore.
+              Details coming soon.
             </p>
             <span class="tag">Roblox</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Discover Game ↗
+              Learn more ↗
             </a>
           </div>
         </article>
 
       </div>
       <p class="note">
-        Replace each game link with the public Roblox game URL when ready.
+        Every game opens on Roblox.
       </p>
     </section>
 
@@ -468,12 +540,12 @@ footer {
           <div class="card-body">
             <h3>Plugin 01</h3>
             <p>
-              A music production tool built for creative
-              workflows and sound exploration.
+              Built for music production.
+              A tool for creative workflows and sound exploration.
             </p>
             <span class="tag">Audio</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Explore Plugin ↗
+              Learn more ↗
             </a>
           </div>
         </article>
@@ -483,12 +555,12 @@ footer {
           <div class="card-body">
             <h3>Plugin 02</h3>
             <p>
-              Another tool for shaping sound.
-              Details and availability will appear here.
+              Another way to shape sound.
+              Details and availability coming soon.
             </p>
             <span class="tag">Audio</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Explore Plugin ↗
+              Learn more ↗
             </a>
           </div>
         </article>
@@ -498,20 +570,19 @@ footer {
           <div class="card-body">
             <h3>Plugin 03</h3>
             <p>
-              A new addition to the collection.
-              More information coming when it's ready.
+              The newest addition.
+              More details coming soon.
             </p>
             <span class="tag">Audio</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Explore Plugin ↗
+              Learn more ↗
             </a>
           </div>
         </article>
 
       </div>
       <p class="note">
-        Add each plugin's information and a link to its actual download
-        or product page. Only distribute builds you have tested.
+        Each plugin links to its download page.
       </p>
     </section>
 
@@ -530,12 +601,12 @@ footer {
           <div class="card-body">
             <h3>App 01</h3>
             <p>
-              Open a useful tool directly in your browser.
-              Save it to your phone for easier access.
+              A useful tool, right in your browser.
+              Add it to your Home Screen for quick access.
             </p>
             <span class="tag">Web App</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Open App ↗
+              Open app ↗
             </a>
           </div>
         </article>
@@ -545,12 +616,12 @@ footer {
           <div class="card-body">
             <h3>App 02</h3>
             <p>
-              A browser-based creation designed to be
-              easy to access and use.
+              Made for the browser.
+              Simple to open. Easy to use.
             </p>
             <span class="tag">Web App</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Open App ↗
+              Open app ↗
             </a>
           </div>
         </article>
@@ -560,12 +631,12 @@ footer {
           <div class="card-body">
             <h3>App 03</h3>
             <p>
-              One more idea brought to life.
-              Open it and see what it has to offer.
+              One more idea, brought to life.
+              Open it and see.
             </p>
             <span class="tag">Web App</span>
             <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
-              Open App ↗
+              Open app ↗
             </a>
           </div>
         </article>
@@ -573,8 +644,8 @@ footer {
       </div>
 
       <p class="note">
-        On iPhone: open an app's link in Safari, tap Share,
-        then choose Add to Home Screen when available.
+        On iPhone, open an app in Safari, tap Share,
+        then tap Add to Home Screen.
       </p>
     </section>
 
@@ -585,30 +656,39 @@ footer {
 
 <section id="coming" class="page">
   <div class="hero">
-    <div class="eyebrow">Beyond the Present</div>
-    <h1>There's more<br>to come.</h1>
+    <div class="eyebrow">What's Next</div>
+    <h1>More<br>to come.</h1>
     <p>
-      Not everything needs to be revealed at once.
-      Some things are better left unseen until the right moment.
+      Not everything is ready to show.
+      Some things are worth the wait.
     </p>
   </div>
 
   <div class="container">
     <div class="mystery">
       <div class="symbol">✳</div>
-      <h2>The story isn't finished.</h2>
+      <h2>The story continues.</h2>
       <p>
-        This is only one part of a much bigger picture.
+        This is one chapter of something bigger.
         What comes next will speak for itself.
-        When the time is right, you'll know.
       </p>
+
+      <form class="signup" id="signup-form" novalidate>
+        <h3>Be the first to know.</h3>
+        <p>Get an email when something new is released.</p>
+        <div class="signup-row">
+          <input type="email" name="email" id="signup-email" placeholder="Email address" autocomplete="email" aria-label="Email address" required>
+          <button type="submit" class="button" id="signup-button">Notify me</button>
+        </div>
+        <p class="signup-message" id="signup-message" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
 
 <footer>
   <p>THE COLLECTION</p>
-  <p>More to discover. Always.</p>
+  <p>More to come.</p>
 </footer>
 
 <script>
@@ -661,9 +741,62 @@ document.querySelectorAll('.project-link').forEach(link => {
   link.addEventListener('click', event => {
     if (link.getAttribute('href') === '#') {
       event.preventDefault();
-      alert('This project link has not been added yet. Check back soon!');
+      alert('Not available yet. Check back soon.');
     }
   });
+});
+
+/* EMAIL SIGNUP
+   Paste your form service endpoint below (Formspree, Buttondown, Mailchimp, etc.).
+   Example: 'https://formspree.io/f/yourFormId' */
+const SIGNUP_ENDPOINT = '';
+
+const signupForm = document.getElementById('signup-form');
+const signupEmail = document.getElementById('signup-email');
+const signupButton = document.getElementById('signup-button');
+const signupMessage = document.getElementById('signup-message');
+
+function setSignupMessage(text, type) {
+  signupMessage.textContent = text;
+  signupMessage.className = 'signup-message' + (type ? ' ' + type : '');
+}
+
+signupForm.addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const email = signupEmail.value.trim();
+  const looksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!looksValid) {
+    setSignupMessage('Enter a valid email address.', 'error');
+    signupEmail.focus();
+    return;
+  }
+
+  if (!SIGNUP_ENDPOINT) {
+    setSignupMessage('Sign-up isn\u2019t available yet. Check back soon.', 'error');
+    return;
+  }
+
+  signupButton.disabled = true;
+  setSignupMessage('Adding you\u2026', '');
+
+  try {
+    const response = await fetch(SIGNUP_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+
+    if (!response.ok) throw new Error('Request failed');
+
+    signupForm.reset();
+    setSignupMessage('You\u2019re on the list. We\u2019ll email you when something new arrives.', 'success');
+  } catch (error) {
+    setSignupMessage('Something went wrong. Please try again.', 'error');
+  } finally {
+    signupButton.disabled = false;
+  }
 });
 
 window.addEventListener('popstate', () => {
