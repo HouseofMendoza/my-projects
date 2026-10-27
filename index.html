@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Projects</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0d0d0f;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  align-items: center;
+  padding: 22px 15px;
+  border-bottom: 1px solid #303038;
+  position: sticky;
+  top: 0;
+  background: #0d0d0f;
+  z-index: 10;
+}
+
+nav a {
+  color: #c7c7d0;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover, nav a.active { color: white; }
+
+nav a.active {
+  border-bottom: 2px solid white;
+  padding-bottom: 8px;
+}
+
+header {
+  text-align: center;
+  padding: 55px 20px 35px;
+}
+
+header h1 {
+  font-size: clamp(34px, 6vw, 54px);
+  margin: 0 0 14px;
+}
+
+header p {
+  color: #aaaab7;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: auto;
+}
+
+main {
+  width: min(1100px, 92%);
+  margin: 0 auto 70px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #141418;
+  border: 1px solid #303038;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #7777ff;
+}
+
+.preview {
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #24243a, #111119);
+  border-bottom: 1px solid #303038;
+  font-size: 48px;
+}
+
+.card-content { padding: 19px; }
+
+.card h2 { font-size: 20px; margin: 0 0 10px; }
+
+.card p {
+  color: #b8b8c5;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 67px;
+}
+
+.tag {
+  display: inline-block;
+  color: #c8c8ff;
+  border: 1px solid #424260;
+  background: #20202d;
+  padding: 6px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin: 3px 3px 10px 0;
+}
+
+.action {
+  display: inline-block;
+  margin-top: 9px;
+  padding: 10px 14px;
+  border: 1px solid #7777ff;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.action:hover { background: #29294a; }
+
+.section { display: none; }
+.section.visible { display: block; }
+
+.coming {
+  text-align: center;
+  padding: 60px 20px;
+  border: 1px solid #303038;
+  background: #141418;
+  border-radius: 10px;
+}
+
+.coming h2 { font-size: 32px; }
+.coming p { color: #b8b8c5; line-height: 1.7; }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #303038;
+  color: #858591;
+  font-size: 13px;
+}
+
+@media (max-width: 750px) {
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  nav { gap: 24px; }
+}
+
+@media (max-width: 480px) {
+  .projects { grid-template-columns: 1fr; }
+  nav { gap: 18px; }
+  nav a { font-size: 13px; }
+  header { padding-top: 38px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#home" data-page="home" class="active">Home</a>
+  <a href="#projects" data-page="projects">Projects</a>
+  <a href="#coming" data-page="coming">Coming Soon</a>
+</nav>
+
+<section id="home" class="section visible">
+  <header>
+    <h1>Welcome</h1>
+    <p>A collection of things I've been building, from games to music tools and code. Explore my projects and try them out for yourself.</p>
+    <a class="action" href="#projects" data-page="projects">Explore My Projects →</a>
+  </header>
+</section>
+
+<section id="projects" class="section">
+  <header>
+    <h1>My Projects</h1>
+    <p>Things I've built. Check them out, play them, and use them for yourself.</p>
+  </header>
+
+  <main>
+    <div class="projects">
+
+      <article class="card">
+        <div class="preview">🏙️</div>
+        <div class="card-content">
+          <h2>Hide From Hulk</h2>
+          <p>Run, hide, and survive while the Hulk hunts you down. Stay out of sight for as long as you can.</p>
+          <span class="tag">Roblox</span>
+          <span class="tag">Survival</span><br>
+          <a class="action" href="#" target="_blank" rel="noopener">Play Game ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="preview">🌆</div>
+        <div class="card-content">
+          <h2>Chicago Survival</h2>
+          <p>Explore a Chicago-inspired city in this survival game project.</p>
+          <span class="tag">Roblox</span>
+          <span class="tag">Open World</span><br>
+          <a class="action" href="#" target="_blank" rel="noopener">Play Game ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="preview">💻</div>
+        <div class="card-content">
+          <h2>My Web Project</h2>
+          <p>A browser-based project built with code. Open it to explore what it does.</p>
+          <span class="tag">Web App</span>
+          <span class="tag">Free</span><br>
+          <a class="action" href="#" target="_blank" rel="noopener">Open Project ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="preview">🎛️</div>
+        <div class="card-content">
+          <h2>My VST Plugin 1</h2>
+          <p>A music production plugin project. Details and downloads will be added here.</p>
+          <span class="tag">Audio</span>
+          <span class="tag">VST</span><br>
+          <a class="action" href="#" target="_blank" rel="noopener">Plugin Details ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="preview">🎚️</div>
+        <div class="card-content">
+          <h2>My VST Plugin 2</h2>
+          <p>Another music tool project. Download and installation information coming soon.</p>
+          <span class="tag">Audio</span>
+          <span class="tag">VST</span><br>
+          <a class="action" href="#" target="_blank" rel="noopener">Plugin Details ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="preview">＋</div>
+        <div class="card-content">
+          <h2>More Projects</h2>
+          <p>New ideas, games, and creative tools will be added here as they're built.</p>
+          <span class="tag">In Progress</span><br>
+          <a class="action" href="#coming" data-page="coming">Coming Soon →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+</section>
+
+<section id="coming" class="section">
+  <header>
+    <h1>Coming Soon</h1>
+    <p>More projects are in the works.</p>
+  </header>
+  <main>
+    <div class="coming">
+      <div style="font-size:50px">🚧</div>
+      <h2>Under Construction</h2>
+      <p>New games, music plugins, and other projects will appear here.</p>
+      <a class="action" href="#projects" data-page="projects">View Projects →</a>
+    </div>
+  </main>
+</section>
+
+<footer>
+  My Projects · Made with care · Free to explore
+</footer>
+
+<script>
+function showPage(page) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.toggle('visible', section.id === page);
+  });
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.classList.toggle('active', link.dataset.page === page);
+  });
+
+  window.scrollTo(0, 0);
+}
+
+document.querySelectorAll('[data-page]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const page = link.dataset.page;
+    history.replaceState(null, '', '#' + page);
+    showPage(page);
+  });
+});
+
+const initialPage = location.hash.replace('#', '');
+if (['home', 'projects', 'coming'].includes(initialPage)) {
+  showPage(initialPage);
+}
+</script>
+
+</body>
+</html>
