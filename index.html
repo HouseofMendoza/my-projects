@@ -4,161 +4,335 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Projects</title>
+<meta name="theme-color" content="#0d0d0f">
+<meta name="description" content="A collection of projects, creations, and things waiting to be discovered.">
+<title>Projects — The Collection</title>
+
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #0d0d0f;
+  --panel: #151519;
+  --border: #303038;
+  --text: #f5f5f7;
+  --muted: #aaaab7;
+  --accent: #aaaaff;
+}
 
 body {
   margin: 0;
-  background: #0d0d0f;
-  color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  gap: 45px;
   align-items: center;
-  padding: 22px 15px;
-  border-bottom: 1px solid #303038;
+  gap: 42px;
+  padding: 23px 15px;
+  background: rgba(13,13,15,.96);
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: #0d0d0f;
   z-index: 10;
+  backdrop-filter: blur(12px);
 }
 
 nav a {
-  color: #c7c7d0;
+  color: var(--muted);
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
+  transition: color .2s;
 }
 
-nav a:hover, nav a.active { color: white; }
+nav a:hover,
+nav a.active {
+  color: white;
+}
 
 nav a.active {
   border-bottom: 2px solid white;
   padding-bottom: 8px;
 }
 
-header {
+.page {
+  display: none;
+  animation: appear .35s ease;
+}
+
+.page.visible {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
   text-align: center;
-  padding: 55px 20px 35px;
-}
-
-header h1 {
-  font-size: clamp(34px, 6vw, 54px);
-  margin: 0 0 14px;
-}
-
-header p {
-  color: #aaaab7;
-  line-height: 1.7;
-  max-width: 600px;
+  padding: 100px 22px 90px;
+  max-width: 850px;
   margin: auto;
 }
 
-main {
-  width: min(1100px, 92%);
-  margin: 0 auto 70px;
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
 }
 
-.projects {
+.hero h1 {
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 0 0 25px;
+}
+
+.hero p {
+  max-width: 570px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.button {
+  display: inline-block;
+  padding: 13px 19px;
+  background: #f3f3f5;
+  color: #111115;
+  border: 1px solid #f3f3f5;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: transparent;
+  color: white;
+}
+
+.button.secondary {
+  background: transparent;
+  color: white;
+  border-color: #454550;
+}
+
+.button.secondary:hover {
+  border-color: white;
+}
+
+.container {
+  width: min(1120px, 91%);
+  margin: auto;
+}
+
+.page-heading {
+  padding: 65px 0 30px;
+}
+
+.page-heading h1 {
+  font-size: clamp(35px, 5vw, 49px);
+  letter-spacing: -1.5px;
+  margin: 0 0 13px;
+}
+
+.page-heading p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.collection {
+  padding-bottom: 65px;
+  scroll-margin-top: 95px;
+}
+
+.collection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 23px;
+}
+
+.collection-heading h2 {
+  font-size: 25px;
+  margin: 0;
+}
+
+.collection-heading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 22px;
 }
 
 .card {
-  background: #141418;
-  border: 1px solid #303038;
-  border-radius: 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 9px;
   overflow: hidden;
-  transition: transform .2s, border-color .2s;
+  transition: transform .25s, border-color .25s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: #7777ff;
+  border-color: #66667c;
 }
 
 .preview {
-  height: 155px;
+  height: 165px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #24243a, #111119);
-  border-bottom: 1px solid #303038;
-  font-size: 48px;
+  background:
+    radial-gradient(ellipse at 50% 100%, #30304a 0%, transparent 65%),
+    linear-gradient(135deg, #1e1e29, #111115);
+  border-bottom: 1px solid var(--border);
+  font-size: 45px;
 }
 
-.card-content { padding: 19px; }
+.card-body {
+  padding: 21px;
+}
 
-.card h2 { font-size: 20px; margin: 0 0 10px; }
+.card h3 {
+  font-size: 19px;
+  margin: 0 0 11px;
+}
 
 .card p {
-  color: #b8b8c5;
-  font-size: 14px;
-  line-height: 1.6;
-  min-height: 67px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  min-height: 69px;
+  margin: 0 0 15px;
 }
 
 .tag {
   display: inline-block;
-  color: #c8c8ff;
-  border: 1px solid #424260;
-  background: #20202d;
   padding: 6px 9px;
-  border-radius: 20px;
-  font-size: 11px;
-  margin: 3px 3px 10px 0;
+  border: 1px solid #414153;
+  background: #20202a;
+  color: #ceceee;
+  border-radius: 4px;
+  font-size: 10px;
+  margin-bottom: 16px;
+  margin-right: 4px;
 }
 
-.action {
-  display: inline-block;
-  margin-top: 9px;
-  padding: 10px 14px;
-  border: 1px solid #7777ff;
-  border-radius: 6px;
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.action:hover { background: #29294a; }
-
-.section { display: none; }
-.section.visible { display: block; }
-
-.coming {
+.card .button {
+  display: block;
   text-align: center;
-  padding: 60px 20px;
-  border: 1px solid #303038;
-  background: #141418;
-  border-radius: 10px;
+  width: 100%;
 }
 
-.coming h2 { font-size: 32px; }
-.coming p { color: #b8b8c5; line-height: 1.7; }
+.note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 17px;
+}
+
+.mystery {
+  max-width: 740px;
+  margin: 0 auto 100px;
+  padding: 65px 25px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background:
+    radial-gradient(ellipse at 50% 0%, #242438 0%, transparent 65%),
+    var(--panel);
+}
+
+.mystery .symbol {
+  font-size: 38px;
+  margin-bottom: 20px;
+  color: #c4c4ff;
+}
+
+.mystery h2 {
+  font-size: clamp(27px, 5vw, 40px);
+  letter-spacing: -1px;
+  margin: 0 0 18px;
+}
+
+.mystery p {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 470px;
+  margin: auto;
+}
 
 footer {
+  border-top: 1px solid var(--border);
+  padding: 27px 15px;
   text-align: center;
-  padding: 25px;
-  border-top: 1px solid #303038;
-  color: #858591;
-  font-size: 13px;
+  color: #777783;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
-@media (max-width: 750px) {
-  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  nav { gap: 24px; }
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero {
+    padding-top: 80px;
+  }
 }
 
-@media (max-width: 480px) {
-  .projects { grid-template-columns: 1fr; }
-  nav { gap: 18px; }
-  nav a { font-size: 13px; }
-  header { padding-top: 38px; }
+@media (max-width: 520px) {
+  nav {
+    gap: 25px;
+    padding: 20px 10px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview {
+    height: 185px;
+  }
+
+  .hero {
+    padding-top: 75px;
+    padding-bottom: 70px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.3px;
+  }
+
+  .page-heading {
+    padding-top: 48px;
+  }
 }
 </style>
 </head>
@@ -171,137 +345,333 @@ footer {
   <a href="#coming" data-page="coming">Coming Soon</a>
 </nav>
 
-<section id="home" class="section visible">
-  <header>
-    <h1>Welcome</h1>
-    <p>A collection of things I've been building, from games to music tools and code. Explore my projects and try them out for yourself.</p>
-    <a class="action" href="#projects" data-page="projects">Explore My Projects →</a>
-  </header>
+<!-- HOME -->
+
+<section id="home" class="page visible">
+  <div class="hero">
+    <div class="eyebrow">A Collection of Creations</div>
+
+    <h1>Something is<br>taking shape.</h1>
+
+    <p>
+      Every idea starts somewhere. Some become real.
+      Others lead somewhere unexpected.
+      This is a small look at what's been created so far.
+      There's more beyond what you see.
+    </p>
+
+    <p>
+      <em>You never know what you'll find next.</em>
+    </p>
+
+    <a href="#projects" data-page="projects" class="button">
+      Explore the Projects &nbsp; →
+    </a>
+  </div>
 </section>
 
-<section id="projects" class="section">
-  <header>
-    <h1>My Projects</h1>
-    <p>Things I've built. Check them out, play them, and use them for yourself.</p>
-  </header>
+<!-- PROJECTS -->
 
-  <main>
-    <div class="projects">
+<section id="projects" class="page">
+  <div class="container">
 
-      <article class="card">
-        <div class="preview">🏙️</div>
-        <div class="card-content">
-          <h2>Hide From Hulk</h2>
-          <p>Run, hide, and survive while the Hulk hunts you down. Stay out of sight for as long as you can.</p>
-          <span class="tag">Roblox</span>
-          <span class="tag">Survival</span><br>
-          <a class="action" href="#" target="_blank" rel="noopener">Play Game ↗</a>
-        </div>
-      </article>
+    <header class="page-heading">
+      <div class="eyebrow">The Collection</div>
+      <h1>Projects</h1>
+      <p>
+        Different ideas. Different directions.
+        All part of the same journey.
+      </p>
+    </header>
 
-      <article class="card">
-        <div class="preview">🌆</div>
-        <div class="card-content">
-          <h2>Chicago Survival</h2>
-          <p>Explore a Chicago-inspired city in this survival game project.</p>
-          <span class="tag">Roblox</span>
-          <span class="tag">Open World</span><br>
-          <a class="action" href="#" target="_blank" rel="noopener">Play Game ↗</a>
-        </div>
-      </article>
+    <!-- QUICK LINKS -->
 
-      <article class="card">
-        <div class="preview">💻</div>
-        <div class="card-content">
-          <h2>My Web Project</h2>
-          <p>A browser-based project built with code. Open it to explore what it does.</p>
-          <span class="tag">Web App</span>
-          <span class="tag">Free</span><br>
-          <a class="action" href="#" target="_blank" rel="noopener">Open Project ↗</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="preview">🎛️</div>
-        <div class="card-content">
-          <h2>My VST Plugin 1</h2>
-          <p>A music production plugin project. Details and downloads will be added here.</p>
-          <span class="tag">Audio</span>
-          <span class="tag">VST</span><br>
-          <a class="action" href="#" target="_blank" rel="noopener">Plugin Details ↗</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="preview">🎚️</div>
-        <div class="card-content">
-          <h2>My VST Plugin 2</h2>
-          <p>Another music tool project. Download and installation information coming soon.</p>
-          <span class="tag">Audio</span>
-          <span class="tag">VST</span><br>
-          <a class="action" href="#" target="_blank" rel="noopener">Plugin Details ↗</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="preview">＋</div>
-        <div class="card-content">
-          <h2>More Projects</h2>
-          <p>New ideas, games, and creative tools will be added here as they're built.</p>
-          <span class="tag">In Progress</span><br>
-          <a class="action" href="#coming" data-page="coming">Coming Soon →</a>
-        </div>
-      </article>
-
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:65px;">
+      <a class="button secondary" href="#games" data-section="games">Games ↓</a>
+      <a class="button secondary" href="#plugins" data-section="plugins">Plugins ↓</a>
+      <a class="button secondary" href="#apps" data-section="apps">Apps ↓</a>
     </div>
-  </main>
+
+    <!-- GAMES -->
+
+    <section id="games" class="collection">
+      <div class="collection-heading">
+        <h2>Games</h2>
+        <span>01 — 03</span>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="preview">🏙️</div>
+          <div class="card-body">
+            <h3>Chicago Survival</h3>
+            <p>
+              An urban survival experience inspired by
+              the streets and atmosphere of Chicago.
+            </p>
+            <span class="tag">Roblox</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Play Game ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">👣</div>
+          <div class="card-body">
+            <h3>Hulk Survival</h3>
+            <p>
+              Stay hidden, keep moving, and survive
+              while a powerful enemy searches for you.
+            </p>
+            <span class="tag">Roblox</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Play Game ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">🎮</div>
+          <div class="card-body">
+            <h3>Game Project 03</h3>
+            <p>
+              Another world to explore.
+              More details will be revealed when it's ready.
+            </p>
+            <span class="tag">Roblox</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Discover Game ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">
+        Replace each game link with the public Roblox game URL when ready.
+      </p>
+    </section>
+
+    <!-- PLUGINS -->
+
+    <section id="plugins" class="collection">
+      <div class="collection-heading">
+        <h2>Plugins</h2>
+        <span>04 — 06</span>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="preview">🎛️</div>
+          <div class="card-body">
+            <h3>Plugin 01</h3>
+            <p>
+              A music production tool built for creative
+              workflows and sound exploration.
+            </p>
+            <span class="tag">Audio</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Explore Plugin ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">🎚️</div>
+          <div class="card-body">
+            <h3>Plugin 02</h3>
+            <p>
+              Another tool for shaping sound.
+              Details and availability will appear here.
+            </p>
+            <span class="tag">Audio</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Explore Plugin ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">〰️</div>
+          <div class="card-body">
+            <h3>Plugin 03</h3>
+            <p>
+              A new addition to the collection.
+              More information coming when it's ready.
+            </p>
+            <span class="tag">Audio</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Explore Plugin ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">
+        Add each plugin's information and a link to its actual download
+        or product page. Only distribute builds you have tested.
+      </p>
+    </section>
+
+    <!-- APPS -->
+
+    <section id="apps" class="collection">
+      <div class="collection-heading">
+        <h2>Apps</h2>
+        <span>07 — 09</span>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="preview">📖</div>
+          <div class="card-body">
+            <h3>App 01</h3>
+            <p>
+              Open a useful tool directly in your browser.
+              Save it to your phone for easier access.
+            </p>
+            <span class="tag">Web App</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Open App ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">🌐</div>
+          <div class="card-body">
+            <h3>App 02</h3>
+            <p>
+              A browser-based creation designed to be
+              easy to access and use.
+            </p>
+            <span class="tag">Web App</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Open App ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">✨</div>
+          <div class="card-body">
+            <h3>App 03</h3>
+            <p>
+              One more idea brought to life.
+              Open it and see what it has to offer.
+            </p>
+            <span class="tag">Web App</span>
+            <a class="button secondary project-link" href="#" target="_blank" rel="noopener">
+              Open App ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="note">
+        On iPhone: open an app's link in Safari, tap Share,
+        then choose Add to Home Screen when available.
+      </p>
+    </section>
+
+  </div>
 </section>
 
-<section id="coming" class="section">
-  <header>
-    <h1>Coming Soon</h1>
-    <p>More projects are in the works.</p>
-  </header>
-  <main>
-    <div class="coming">
-      <div style="font-size:50px">🚧</div>
-      <h2>Under Construction</h2>
-      <p>New games, music plugins, and other projects will appear here.</p>
-      <a class="action" href="#projects" data-page="projects">View Projects →</a>
+<!-- COMING SOON -->
+
+<section id="coming" class="page">
+  <div class="hero">
+    <div class="eyebrow">Beyond the Present</div>
+    <h1>There's more<br>to come.</h1>
+    <p>
+      Not everything needs to be revealed at once.
+      Some things are better left unseen until the right moment.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="mystery">
+      <div class="symbol">✳</div>
+      <h2>The story isn't finished.</h2>
+      <p>
+        This is only one part of a much bigger picture.
+        What comes next will speak for itself.
+        When the time is right, you'll know.
+      </p>
     </div>
-  </main>
+  </div>
 </section>
 
 <footer>
-  My Projects · Made with care · Free to explore
+  <p>THE COLLECTION</p>
+  <p>More to discover. Always.</p>
 </footer>
 
 <script>
-function showPage(page) {
-  document.querySelectorAll('.section').forEach(section => {
+function showPage(page, updateHistory = true) {
+  const validPages = ['home', 'projects', 'coming'];
+
+  if (!validPages.includes(page)) {
+    page = 'home';
+  }
+
+  document.querySelectorAll('.page').forEach(section => {
     section.classList.toggle('visible', section.id === page);
   });
 
-  document.querySelectorAll('nav a').forEach(link => {
+  document.querySelectorAll('nav [data-page]').forEach(link => {
     link.classList.toggle('active', link.dataset.page === page);
   });
 
-  window.scrollTo(0, 0);
+  if (updateHistory) {
+    history.pushState(null, '', '#' + page);
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 document.querySelectorAll('[data-page]').forEach(link => {
   link.addEventListener('click', event => {
     event.preventDefault();
-    const page = link.dataset.page;
-    history.replaceState(null, '', '#' + page);
-    showPage(page);
+    showPage(link.dataset.page);
   });
 });
 
-const initialPage = location.hash.replace('#', '');
-if (['home', 'projects', 'coming'].includes(initialPage)) {
-  showPage(initialPage);
-}
+document.querySelectorAll('[data-section]').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+
+    const sectionId = link.dataset.section;
+    showPage('projects');
+
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+  });
+});
+
+document.querySelectorAll('.project-link').forEach(link => {
+  link.addEventListener('click', event => {
+    if (link.getAttribute('href') === '#') {
+      event.preventDefault();
+      alert('This project link has not been added yet. Check back soon!');
+    }
+  });
+});
+
+window.addEventListener('popstate', () => {
+  showPage(location.hash.slice(1) || 'home', false);
+});
+
+const startingPage = location.hash.slice(1);
+showPage(startingPage || 'home', false);
 </script>
 
 </body>
