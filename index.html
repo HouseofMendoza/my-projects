@@ -1,289 +1,255 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House Of Mendoza</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House of Mendoza</title>
+<script>document.documentElement.className="js"</script>
 <style>
-:root {
-  --bg: #0d0d0f;
-  --panel: #151519;
-  --border: #29292f;
-  --text: #f4f4f5;
-  --muted: #9999a3;
-  --accent: #d8d8df;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-}
-a { color: inherit; text-decoration: none; }
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  gap: 34px;
-  padding: 20px;
-  background: rgba(13,13,15,.94);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-nav a { color: var(--muted); font-size: 13px; }
-nav a:hover, .project-link:hover { color: white; }
-section {
-  width: min(1050px, 90%);
-  margin: auto;
-}
-.hero {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-.eyebrow, .project-number {
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-h1 {
-  font-size: clamp(48px, 9vw, 92px);
-  line-height: 1.02;
-  letter-spacing: -5px;
-  margin: 18px 0;
-}
-h2 {
-  font-size: 38px;
-  letter-spacing: -1px;
-  margin-bottom: 10px;
-}
-h3 { font-size: 22px; margin: 12px 0 5px; }
-.intro {
-  color: var(--muted);
-  max-width: 520px;
-  font-size: 16px;
-}
-.primary-link {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 20px;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  font-size: 13px;
-}
-.primary-link:hover { background: white; color: black; }
-.projects { padding: 75px 0; }
-.quick-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 28px 0 55px;
-}
-.quick-links a {
-  border: 1px solid var(--border);
-  padding: 9px 15px;
-  border-radius: 4px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.collection { margin: 55px 0 85px; scroll-margin-top: 90px; }
-.collection-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-}
-.collection-heading h2 { font-size: 27px; margin: 0; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.project-card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 25px;
-  min-height: 225px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: transform .2s, border-color .2s;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: #55555e;
-}
-.project-icon { font-size: 30px; margin-bottom: 18px; }
-.project-number { font-size: 10px; letter-spacing: 2px; }
-.project-card p { color: var(--muted); font-size: 13px; margin: 5px 0 20px; }
-.project-link {
-  margin-top: auto;
-  font-size: 12px;
-  color: var(--accent);
-}
-.coming {
-  border-top: 1px solid var(--border);
-  padding: 100px 0;
-  text-align: center;
-}
-.coming h2 { font-size: clamp(38px, 7vw, 65px); }
-.coming p { color: var(--muted); }
-footer {
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 25px;
-  color: var(--muted);
-  font-size: 11px;
-}
-@media(max-width:700px) {
-  nav { gap: 22px; }
-  .grid { grid-template-columns: 1fr; }
-  h1 { letter-spacing: -3px; }
-  .projects { padding-top: 45px; }
-}
+:root{--gray:#f5f5f7;--ink:#1d1d1f;--muted:#6e6e73;--blue:#0066cc;--blue-d:#2997ff;--btn:#0071e3;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .5s,color .5s}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--btn);outline-offset:3px;border-radius:4px}
+.view{display:none}.view.on{display:block}
+nav{position:sticky;top:0;z-index:20;height:48px;background:rgba(255,255,255,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.1);transition:background .5s}
+.nav-in{max-width:1024px;height:100%;margin:auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between;font-size:12px}
+.brand{font-weight:600;font-size:14px;letter-spacing:-.02em}
+.nav-links{display:flex;gap:28px}
+.nav-links a{opacity:.8;transition:opacity .2s}
+.nav-links a:hover,.nav-links a[aria-current]{opacity:1}
+.dk{background:#000;color:#f5f5f7}
+.dk nav{background:rgba(22,22,23,.8);border-bottom-color:rgba(255,255,255,.12)}
+.h{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.07}
+.h1{font-size:clamp(48px,10vw,112px)}
+.h2{font-size:clamp(34px,6vw,64px)}
+.sub{font-size:clamp(19px,2.4vw,28px);line-height:1.19;margin-top:14px}
+.eb{font-size:21px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.dk .eb,.tile.dark .eb{color:#a1a1a6}
+.acts{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:26px;align-items:center}
+.link{color:var(--blue);font-size:19px}.link:after{content:" \203A"}.link:hover{text-decoration:underline}
+.dk .link,.tile.dark .link{color:var(--blue-d)}
+.btn{display:inline-block;background:var(--btn);color:#fff;padding:9px 20px;border-radius:980px;font-size:17px;transition:background .2s,transform .3s var(--ease)}
+.btn:hover{background:#0077ed;transform:scale(1.04)}
+.hero{text-align:center;padding:120px 22px 100px;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero .sub{max-width:620px}
+/* motion */
+.js .reveal{opacity:0;transform:translateY(48px) scale(.97);transition:opacity 1s var(--ease) var(--d,0s),transform 1s var(--ease) var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+[data-fade]{will-change:transform,opacity}
+/* tiles */
+.tile{display:block;text-align:center;padding:72px 22px 0;overflow:hidden;margin:0 12px 12px;background:var(--gray);min-height:560px}
+.tile.dark{background:#000;color:#f5f5f7}
+.tile .vis{margin-top:44px;transition:transform .8s var(--ease)}
+.tile:hover .vis{transform:scale(1.05)}
+.glyph{font-size:110px;line-height:1;padding-bottom:30px}
+/* reader */
+.reader{width:min(520px,88%);height:220px;margin:0 auto;background:#000;color:#fff;border-radius:22px 22px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.reader .w{font-size:clamp(36px,7vw,54px);font-weight:600;letter-spacing:-.03em}
+.reader b,.word b{color:#ff453a;font-weight:600}
+.bar{width:200px;height:4px;border-radius:2px;background:#2c2c2e;overflow:hidden}
+.bar i{display:block;height:100%;width:62%;background:var(--blue-d)}
+/* scrub scene */
+.scrub{height:420vh;background:#000;position:relative}
+.stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:0 22px}
+.word{font-size:clamp(56px,15vw,180px);font-weight:600;letter-spacing:-.045em;line-height:1.1;min-height:1.2em;white-space:nowrap}
+.stage .bar{width:min(360px,70%);margin-top:28px}
+.stage .bar i{width:0}
+.wpm{margin-top:14px;font-size:15px;color:#a1a1a6;font-variant-numeric:tabular-nums}
+.steps{position:absolute;left:0;right:0;bottom:12vh;height:90px}
+.step{position:absolute;inset:0;font-size:clamp(24px,4vw,40px);font-weight:600;letter-spacing:-.03em;opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.step.on{opacity:1;transform:none}
+/* skyline */
+.sky{height:300px;display:flex;align-items:flex-end;justify-content:center;gap:5px;margin-top:40px;overflow:hidden}
+.b{flex:0 1 54px;background:radial-gradient(circle,rgba(255,214,10,.6) 1px,transparent 1.7px) 0 0/10px 13px,#161618;border-radius:3px 3px 0 0;transform:scaleY(0);transform-origin:bottom;transition:transform 1.4s var(--ease) var(--d)}
+.sky.in .b{transform:none}
+/* spotlight */
+.spot{position:relative;min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 22px;background:#0a0a0a;color:#f5f5f7;overflow:hidden;cursor:none;touch-action:pan-y}
+.spot:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle 190px at var(--x,50%) var(--y,50%),transparent 0,rgba(0,0,0,.4) 55%,#000 100%)}
+.spot>*{position:relative}
+.hint{margin-top:30px;font-size:14px;color:#a1a1a6;z-index:2}
+/* coming soon */
+.cards{max-width:1024px;margin:0 auto;padding:0 22px 120px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--gray);color:var(--ink);border-radius:22px;padding:36px;min-height:260px;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.card h3{font-size:32px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.card p{color:var(--muted);font-size:19px;margin-top:8px}
+.pill{margin-top:auto;padding-top:26px;display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.pill i{width:8px;height:8px;border-radius:50%;background:#30d158;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(48,209,88,.6)}70%,100%{box-shadow:0 0 0 10px rgba(48,209,88,0)}}
+.shim{height:4px;border-radius:2px;background:#d2d2d7;margin-top:12px;overflow:hidden;position:relative}
+.shim:after{content:"";position:absolute;inset:0;width:40%;background:var(--btn);border-radius:2px;animation:slide 2.4s var(--ease) infinite}
+@keyframes slide{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+footer{background:var(--gray);padding:0 22px 28px;transition:background .5s}
+footer div{max-width:1024px;margin:auto;border-top:1px solid #d2d2d7;padding-top:18px;color:var(--muted);font-size:12px}
+.dk footer{background:#000}.dk footer div{border-color:#333;color:#a1a1a6}
+@media(max-width:860px){.cards{grid-template-columns:1fr}.tile{min-height:0}.nav-links{gap:18px}}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}.b{transform:none;transition:none}.pill i,.shim:after{animation:none}.shim:after{width:60%}}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#projects">Projects</a>
-  <a href="#coming">Coming Soon</a>
+<nav aria-label="Primary">
+  <div class="nav-in">
+    <a class="brand" href="#home">House of Mendoza</a>
+    <div class="nav-links">
+      <a href="#apps">Apps</a>
+      <a href="#games">Games</a>
+      <a href="#soon">Coming soon</a>
+    </div>
+  </div>
 </nav>
 
-<section class="hero" id="home">
-  <div class="eyebrow">The Collection</div>
-  <h1>Ideas,<br>made real.</h1>
-  <p class="intro">
-    A collection of projects, experiments, and ideas brought to life.
-    Explore what's been created and see what's coming next.
-  </p>
-  <a class="primary-link" href="#projects">Explore projects →</a>
-</section>
+<!-- HOME -->
+<main class="view" id="v-home">
+  <section class="hero" data-fade>
+    <h1 class="h h1">Ideas, made real.</h1>
+    <p class="sub">Apps and games, designed and built independently.</p>
+    <div class="acts"><a class="btn" href="#apps">Explore apps</a><a class="link" href="#games">See the games</a></div>
+  </section>
+  <a class="tile reveal" href="#apps">
+    <div class="eb">Apps</div><h2 class="h h2">ReadFlow</h2><p class="sub">A different way to read.</p>
+    <div class="vis"><div class="reader" aria-hidden="true"><div class="w">fl<b>o</b>w</div><div class="bar"><i></i></div></div></div>
+  </a>
+  <a class="tile dark reveal" href="#games">
+    <div class="eb">Games</div><h2 class="h h2">Survive the city.</h2><p class="sub">Chicago Survival and Hulk Survival.</p>
+    <div class="vis glyph" aria-hidden="true">🌃</div>
+  </a>
+  <a class="tile reveal" href="#soon" style="min-height:420px">
+    <div class="eb">Coming soon</div><h2 class="h h2">More to come.</h2><p class="sub">See what’s in development.</p>
+  </a>
+</main>
 
-<section class="projects" id="projects">
-  <div class="eyebrow">Explore the collection</div>
-  <h2>Projects</h2>
-  <p class="intro">Games, plugins, and apps. Each one its own idea.</p>
+<!-- APPS -->
+<main class="view" id="v-apps">
+  <section class="hero" data-fade>
+    <div class="eb">ReadFlow</div>
+    <h1 class="h h1">Read faster.<br>Feel the flow.</h1>
+    <p class="sub">A different way to read. Your speed-reading app.</p>
+    <div class="acts">
+      <a class="btn" href="https://houseofmendoza.github.io/readflow/" target="_blank" rel="noopener noreferrer">Open ReadFlow</a>
+      <a class="link" href="#demo">Watch it work</a>
+    </div>
+  </section>
+  <section class="scrub" id="demo" data-scrub data-words="Every great idea starts with a single word. Then another. Then another, faster than you thought you could read.">
+    <div class="stage">
+      <div class="word" aria-live="off">Every</div>
+      <div class="bar"><i></i></div>
+      <div class="wpm">200 words per minute</div>
+      <div class="steps">
+        <div class="step on h" data-from="0" data-to=".33">One word at a time.</div>
+        <div class="step h" data-from=".33" data-to=".66">Your eyes stay still.</div>
+        <div class="step h" data-from=".66" data-to="1.01">Your speed keeps climbing.</div>
+      </div>
+    </div>
+  </section>
+  <section class="hero reveal" style="min-height:70vh">
+    <h2 class="h h2">Try it with your own reading.</h2>
+    <div class="acts">
+      <a class="btn" href="https://houseofmendoza.github.io/readflow/" target="_blank" rel="noopener noreferrer">Open ReadFlow</a>
+      <a class="link" href="#soon">More apps on the way</a>
+    </div>
+  </section>
+</main>
 
-  <div class="quick-links">
-    <a href="#apps">Apps ↓</a>
-    <a href="#plugins">Plugins ↓</a>
-    <a href="#games">Games ↓</a>
+<!-- GAMES -->
+<main class="view" id="v-games">
+  <section class="hero" data-fade>
+    <h1 class="h h1">Play.</h1>
+    <p class="sub">Two games. One goal: make it out.</p>
+  </section>
+  <section style="text-align:center;padding:80px 22px 0;overflow:hidden">
+    <div class="reveal">
+      <div class="eb">Game</div><h2 class="h h2">Chicago Survival</h2>
+      <p class="sub">Explore, survive, and make it through the city.</p>
+      <div class="acts"><a class="link" href="#soon">Play now</a></div>
+    </div>
+    <div class="sky reveal" data-skyline aria-hidden="true"></div>
+  </section>
+  <section class="spot" data-spot>
+    <div class="eb">Game</div><h2 class="h h1">Stay hidden.</h2>
+    <p class="sub">Stay alive. Don’t get caught.</p>
+    <div class="acts"><a class="link" href="#soon" style="z-index:2;cursor:pointer">Hulk Survival</a></div>
+    <p class="hint">Move your cursor to look around.</p>
+  </section>
+  <section class="hero reveal" style="min-height:60vh">
+    <h2 class="h h2">Another world is taking shape.</h2>
+    <div class="acts"><a class="link" href="#soon">See what’s next</a></div>
+  </section>
+</main>
+
+<!-- COMING SOON -->
+<main class="view" id="v-soon">
+  <section class="hero" data-fade style="min-height:60vh">
+    <h1 class="h h1">More to come.</h1>
+    <p class="sub">Here’s what’s in the works.</p>
+  </section>
+  <div class="cards">
+    <div class="card reveal"><h3>App 02</h3><p>Something new is being developed.</p><div class="pill"><i></i>In development</div><div class="shim"></div></div>
+    <div class="card reveal" style="--d:.1s"><h3>Game 03</h3><p>Another world is taking shape.</p><div class="pill"><i></i>In development</div><div class="shim"></div></div>
+    <div class="card reveal"><h3>Audio plugin 01</h3><p>Audio tools and creative experiments.</p><div class="pill"><i></i>In development</div><div class="shim"></div></div>
+    <div class="card reveal" style="--d:.1s"><h3>Audio plugin 02</h3><p>More tools are in development.</p><div class="pill"><i></i>In development</div><div class="shim"></div></div>
   </div>
+</main>
 
-  <div class="collection" id="apps">
-    <div class="collection-heading">
-      <h2>Apps</h2>
-      <span class="eyebrow">01 — 03</span>
-    </div>
-    <div class="grid">
-      <div class="project-card">
-        <div class="project-icon">📖</div>
-        <div class="project-number">APP 01</div>
-        <h3>ReadFlow</h3>
-        <p>A different way to read. Your speed-reading app.</p>
-        <a class="project-link" href="https://houseofmendoza.github.io/readflow/" target="_blank" rel="noopener noreferrer">Open app →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">◈</div>
-        <div class="project-number">APP 02</div>
-        <h3>App Project 02</h3>
-        <p>Something new is being developed.</p>
-        <a class="project-link" href="#coming">Coming soon →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">◉</div>
-        <div class="project-number">APP 03</div>
-        <h3>App Project 03</h3>
-        <p>Another idea in the works.</p>
-        <a class="project-link" href="#coming">Coming soon →</a>
-      </div>
-    </div>
-  </div>
+<footer><div>House of Mendoza. Independent ideas, made real.</div></footer>
 
-  <div class="collection" id="plugins">
-    <div class="collection-heading">
-      <h2>Plugins</h2>
-      <span class="eyebrow">04 — 06</span>
-    </div>
-    <div class="grid">
-      <div class="project-card">
-        <div class="project-icon">♫</div>
-        <div class="project-number">PLUGIN 01</div>
-        <h3>Plugin Project 01</h3>
-        <p>Audio tools and creative experiments.</p>
-        <a class="project-link" href="#coming">Learn more →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">◌</div>
-        <div class="project-number">PLUGIN 02</div>
-        <h3>Plugin Project 02</h3>
-        <p>More tools are in development.</p>
-        <a class="project-link" href="#coming">Learn more →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">⌁</div>
-        <div class="project-number">PLUGIN 03</div>
-        <h3>Plugin Project 03</h3>
-        <p>New creative possibilities.</p>
-        <a class="project-link" href="#coming">Learn more →</a>
-      </div>
-    </div>
-  </div>
+<script>
+(()=>{
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 
-  <div class="collection" id="games">
-    <div class="collection-heading">
-      <h2>Games</h2>
-      <span class="eyebrow">07 — 09</span>
-    </div>
-    <div class="grid">
-      <div class="project-card">
-        <div class="project-icon">🌃</div>
-        <div class="project-number">GAME 01</div>
-        <h3>Chicago Survival</h3>
-        <p>Explore, survive, and make it through the city.</p>
-        <a class="project-link" href="#coming">Play now →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">👣</div>
-        <div class="project-number">GAME 02</div>
-        <h3>Hulk Survival</h3>
-        <p>Stay hidden. Stay alive. Don't get caught.</p>
-        <a class="project-link" href="#coming">Play now →</a>
-      </div>
-      <div class="project-card">
-        <div class="project-icon">🎮</div>
-        <div class="project-number">GAME 03</div>
-        <h3>Game Project 03</h3>
-        <p>Another world is taking shape.</p>
-        <a class="project-link" href="#coming">Coming soon →</a>
-      </div>
-    </div>
-  </div>
-</section>
+// skyline
+const sk=document.querySelector('[data-skyline]');
+for(let i=0;i<16;i++){const d=document.createElement('div');d.className='b';d.style.height=(35+Math.abs(Math.sin(i*2.3))*65)+'%';d.style.setProperty('--d',(i*.07)+'s');sk.appendChild(d)}
 
-<section class="coming" id="coming">
-  <div class="eyebrow">The next chapter</div>
-  <h2>More to come.</h2>
-  <p>The story continues.</p>
-</section>
+// scroll effects
+const fade=[...document.querySelectorAll('[data-fade]')],sc=document.querySelector('[data-scrub]');
+const words=sc.dataset.words.split(' '),wEl=sc.querySelector('.word'),bar=sc.querySelector('.bar i'),wpm=sc.querySelector('.wpm'),steps=[...sc.querySelectorAll('.step')];
+let last=-1;
+function tick(){
+  const y=scrollY,h=innerHeight;
+  if(!rm)fade.forEach(el=>{const p=Math.min(1,y/(h*.8));el.style.transform='scale('+(1-p*.12)+') translateY('+(-p*40)+'px)';el.style.opacity=1-p});
+  const r=sc.getBoundingClientRect();
+  if(r.height){
+    const p=Math.max(0,Math.min(1,-r.top/(r.height-h))),i=Math.min(words.length-1,Math.floor(p*words.length));
+    bar.style.width=(p*100)+'%';wpm.textContent=Math.round(200+p*400)+' words per minute';
+    if(i!==last){last=i;const w=words[i],k=Math.floor((w.length-1)/3);wEl.innerHTML=w.slice(0,k)+'<b>'+w[k]+'</b>'+w.slice(k+1)}
+    steps.forEach(s=>s.classList.toggle('on',p>=+s.dataset.from&&p<+s.dataset.to));
+  }
+}
+let q=false;
+addEventListener('scroll',()=>{if(!q){q=true;requestAnimationFrame(()=>{q=false;tick()})}},{passive:true});
+addEventListener('resize',tick);
 
-<footer>
-  House Of Mendoza · Independent ideas, made real.
-</footer>
+// spotlight
+const sp=document.querySelector('[data-spot]');
+let hover=false,t=0;
+const setSpot=(x,y)=>{sp.style.setProperty('--x',x+'px');sp.style.setProperty('--y',y+'px')};
+sp.addEventListener('pointermove',e=>{hover=true;const r=sp.getBoundingClientRect();setSpot(e.clientX-r.left,e.clientY-r.top)});
+sp.addEventListener('pointerleave',()=>hover=false);
+(function loop(){if(!hover&&!rm){t+=.012;const r=sp.getBoundingClientRect();if(r.width)setSpot(r.width*(.5+.32*Math.sin(t)),r.height*(.5+.25*Math.sin(t*1.7)))}requestAnimationFrame(loop)})();
 
+// page switching
+const views=[...document.querySelectorAll('.view')],links=[...document.querySelectorAll('.nav-links a')];
+function go(n){
+  const v=document.getElementById('v-'+n);if(!v)return;
+  views.forEach(x=>x.classList.toggle('on',x===v));
+  document.body.classList.toggle('dk',n==='games');
+  links.forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+n));
+  scrollTo({top:0,behavior:'instant'});
+  v.querySelectorAll('.reveal').forEach(el=>{el.classList.remove('in');io.observe(el)});
+  last=-1;tick();
+}
+function route(){
+  const n=location.hash.slice(1);
+  if(document.getElementById('v-'+n))go(n);
+  else if(!document.querySelector('.view.on'))go('home');
+}
+addEventListener('hashchange',route);
+route();
+})();
+</script>
 </body>
 </html>
